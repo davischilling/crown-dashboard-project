@@ -1,0 +1,779 @@
+{
+	"info": {
+		"_postman_id": "15df3e9e-8c4a-4fce-9542-0734d4a07706",
+		"name": "CROWN",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "STATISTIC",
+			"item": [
+				{
+					"name": "STATISTICHE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-pagination-limit",
+								"value": "10",
+								"type": "text"
+							},
+							{
+								"key": "x-pagination-skip",
+								"value": "0",
+								"type": "text"
+							},
+							{
+								"key": "x-pagination-sort",
+								"value": "createdAt",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/v1/statistics/outcome?from_date=1990-02-08T23:00:00.000Z&to_date=2022-02-08T23:00:00.000Z",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"statistics",
+								"outcome"
+							],
+							"query": [
+								{
+									"key": "from_date",
+									"value": "1990-02-08T23:00:00.000Z"
+								},
+								{
+									"key": "to_date",
+									"value": "2022-02-08T23:00:00.000Z"
+								},
+								{
+									"key": "city",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "street",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "candidate",
+									"value": "",
+									"disabled": true
+								},
+								{
+									"key": "outcome",
+									"value": "",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "AUTHENTICATION",
+			"item": [
+				{
+					"name": "LOGIN",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"postman.setEnvironmentVariable(\"token\", postman.getResponseHeader(\"x-auth-token\"));"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"liseo.vertenzi@mobilesoft.it\",\n    \"password\":\"m0biles0ft\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/auth/login",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LOGOUT",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/auth/logout",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "APPLICATION",
+			"item": [
+				{
+					"name": "INFO",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/applications/info",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"applications",
+								"info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ALIVE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/applications/alive",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"applications",
+								"alive"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CONFIG",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/applications/config",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"applications",
+								"config"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "SETUP",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/applications/setup",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"applications",
+								"setup"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "USER",
+			"item": [
+				{
+					"name": "NUOVO UTENTE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"liseo.vertenzi@mobilesoft.it\",\n    \"password\":\"m0biles0ft\",\n    \"role\":\"ADMINISTRATOR\",\n    \"firstName\":\"LISEO\",\n    \"lastName\":\"VERTENZI\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/users",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LISTA UTENTI",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-pagination-limit",
+								"value": "10",
+								"type": "text"
+							},
+							{
+								"key": "x-pagination-skip",
+								"value": "0",
+								"type": "text"
+							},
+							{
+								"key": "x-pagination-sort",
+								"value": "createdAt",
+								"type": "text"
+							},
+							{
+								"key": "email",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "firstName",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "lastName",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "role",
+								"value": "",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/v1/users",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DETTAGLIO UTENTE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/v1/users/603a2f1bfd707e4b0256fb68",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"603a2f1bfd707e4b0256fb68"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MODIFICA UTENTE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\":\"PAOLO\",\n    \"lastName\":\"SANTINON\",\n    \"role\":\"USER\",\n    \"active\":true\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/users/603b4d2439e5335b18680603",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"603b4d2439e5335b18680603"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CAMBIA PASSWORD",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"current\":\"m0biles0ft\",\n    \"password\":\"M0biles0ft\",\n    \"confirm\":\"M0biles0ft\"\n}"
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/users/603b4d2439e5335b18680603/change",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"603b4d2439e5335b18680603",
+								"change"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ELIMINA UTENTE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/api/v1/users/603b5794a2f76f5d64164d35",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"users",
+								"603b5794a2f76f5d64164d35"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PAD",
+			"item": [
+				{
+					"name": "NUOVO TAMPONE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\":\"Angelantonio\",\n    \"lastName\":\"Verzura\",\n    \"birth\":\"1980-02-20\",\n    \"city\":\"NAPOLI\",\n    \"street\":\"Viao po n° 12\",\n    \"phone\":\"3357895621\",\n    \"candidate\":\"Salvatore Verzura\",\n    \"notes\":\"Test rapido xyz\",\n    \"requested\":\"2021-03-01\",\n    \"executed\":\"2021-03-01\",\n    \"outcome\":\"NEGATIVE\",\n    \"firstOperator\":\"Liseo Vertenzi\",\n    \"secondOperator\":\"Maurizio Moriconi\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/pads",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pads"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "IMPORT",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": []
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/pads/Iimport",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pads",
+								"Iimport"
+							],
+							"query": [
+								{
+									"key": "file",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DETTAGLIO TAMPONE",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\":\"Angelantonio\",\n    \"lastName\":\"Verzura\",\n    \"birth\":\"1980-02-20\",\n    \"city\":\"NAPOLI\",\n    \"street\":\"Viao po n° 12\",\n    \"phone\":\"3357895621\",\n    \"candidate\":\"Salvatore Verzura\",\n    \"notes\":\"Test rapido xyz\",\n    \"requested\":\"2021-03-01\",\n    \"executed\":\"2021-03-01\",\n    \"outcome\":\"NEGATIVE\",\n    \"firstOperator\":\"Liseo Vertenzi\",\n    \"secondOperator\":\"Maurizio Moriconi\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/pads/603d0073e2b3db0319778a39",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pads",
+								"603d0073e2b3db0319778a39"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MODIFICA TAMPONE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"firstName\":\"Angeloantonio\",\n    \"lastName\":\"Verzura\",\n    \"birth\":\"1980-02-20\",\n    \"city\":\"NAPOLI\",\n    \"street\":\"Viao po n° 12\",\n    \"phone\":\"3357895621\",\n    \"candidate\":\"Salvatore Verzura\",\n    \"notes\":\"Test rapido xyz\",\n    \"requested\":\"2021-03-01\",\n    \"executed\":\"2021-03-01\",\n    \"outcome\":\"NEGATIVE\",\n    \"firstOperator\":\"Liseo Vertenzi\",\n    \"secondOperator\":\"Maurizio Moriconi\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/v1/pads/603d0073e2b3db0319778a39",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pads",
+								"603d0073e2b3db0319778a39"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ELIMINA TAMPONE",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/v1/pads/603d0073e2b3db0319778a39",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"pads",
+								"603d0073e2b3db0319778a39"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
